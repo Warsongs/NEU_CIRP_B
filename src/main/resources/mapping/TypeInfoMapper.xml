@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.sun.dao.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.sun.model.User" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="username" property="username" jdbcType="VARCHAR" />
-    <result column="type" property="type" jdbcType="VARCHAR" />
-    <result column="org_name" property="orgName" jdbcType="VARCHAR" />
+<mapper namespace="com.sun.dao.TypeInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.sun.model.TypeInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="yn" property="yn" jdbcType="BIT" />
     <result column="ts" property="ts" jdbcType="TIMESTAMP" />
     <result column="createDate" property="createdate" jdbcType="TIMESTAMP" />
@@ -70,15 +68,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, username, type, org_name, yn, ts, createDate, deleteDate
+    id, name, yn, ts, createDate, deleteDate
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sun.model.UserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sun.model.TypeInfoExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from user
+    from type_info
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,44 +84,36 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from user
-    where id = #{id,jdbcType=VARCHAR}
+    from type_info
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from user
-    where id = #{id,jdbcType=VARCHAR}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from type_info
+    where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.sun.model.UserExample" >
-    delete from user
+  <delete id="deleteByExample" parameterType="com.sun.model.TypeInfoExample" >
+    delete from type_info
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.sun.model.User" >
-    insert into user (id, username, type, 
-      org_name, yn, ts, createDate, 
-      deleteDate)
-    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
-      #{orgName,jdbcType=VARCHAR}, #{yn,jdbcType=BIT}, #{ts,jdbcType=TIMESTAMP}, #{createdate,jdbcType=TIMESTAMP}, 
-      #{deletedate,jdbcType=TIMESTAMP})
+  <insert id="insert" parameterType="com.sun.model.TypeInfo" >
+    insert into type_info (id, name, yn, ts, 
+      createDate, deleteDate)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{yn,jdbcType=BIT}, #{ts,jdbcType=TIMESTAMP}, 
+      #{createdate,jdbcType=TIMESTAMP}, #{deletedate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.sun.model.User" >
-    insert into user
+  <insert id="insertSelective" parameterType="com.sun.model.TypeInfo" >
+    insert into type_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
       </if>
-      <if test="username != null" >
-        username,
-      </if>
-      <if test="type != null" >
-        type,
-      </if>
-      <if test="orgName != null" >
-        org_name,
+      <if test="name != null" >
+        name,
       </if>
       <if test="yn != null" >
         yn,
@@ -140,16 +130,10 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="username != null" >
-        #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="type != null" >
-        #{type,jdbcType=VARCHAR},
-      </if>
-      <if test="orgName != null" >
-        #{orgName,jdbcType=VARCHAR},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
       </if>
       <if test="yn != null" >
         #{yn,jdbcType=BIT},
@@ -165,26 +149,20 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.sun.model.UserExample" resultType="java.lang.Integer" >
-    select count(*) from user
+  <select id="countByExample" parameterType="com.sun.model.TypeInfoExample" resultType="java.lang.Integer" >
+    select count(*) from type_info
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update user
+    update type_info
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=VARCHAR},
+        id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.username != null" >
-        username = #{record.username,jdbcType=VARCHAR},
-      </if>
-      <if test="record.type != null" >
-        type = #{record.type,jdbcType=VARCHAR},
-      </if>
-      <if test="record.orgName != null" >
-        org_name = #{record.orgName,jdbcType=VARCHAR},
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
       </if>
       <if test="record.yn != null" >
         yn = #{record.yn,jdbcType=BIT},
@@ -204,11 +182,9 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update user
-    set id = #{record.id,jdbcType=VARCHAR},
-      username = #{record.username,jdbcType=VARCHAR},
-      type = #{record.type,jdbcType=VARCHAR},
-      org_name = #{record.orgName,jdbcType=VARCHAR},
+    update type_info
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
       yn = #{record.yn,jdbcType=BIT},
       ts = #{record.ts,jdbcType=TIMESTAMP},
       createDate = #{record.createdate,jdbcType=TIMESTAMP},
@@ -217,17 +193,11 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sun.model.User" >
-    update user
+  <update id="updateByPrimaryKeySelective" parameterType="com.sun.model.TypeInfo" >
+    update type_info
     <set >
-      <if test="username != null" >
-        username = #{username,jdbcType=VARCHAR},
-      </if>
-      <if test="type != null" >
-        type = #{type,jdbcType=VARCHAR},
-      </if>
-      <if test="orgName != null" >
-        org_name = #{orgName,jdbcType=VARCHAR},
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="yn != null" >
         yn = #{yn,jdbcType=BIT},
@@ -242,17 +212,15 @@
         deleteDate = #{deletedate,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sun.model.User" >
-    update user
-    set username = #{username,jdbcType=VARCHAR},
-      type = #{type,jdbcType=VARCHAR},
-      org_name = #{orgName,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="com.sun.model.TypeInfo" >
+    update type_info
+    set name = #{name,jdbcType=VARCHAR},
       yn = #{yn,jdbcType=BIT},
       ts = #{ts,jdbcType=TIMESTAMP},
       createDate = #{createdate,jdbcType=TIMESTAMP},
       deleteDate = #{deletedate,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

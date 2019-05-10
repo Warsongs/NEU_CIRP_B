@@ -1,7 +1,7 @@
+/*
 package com.sun.controller;
 
 // slf4j.Logger
-import com.sun.model.User;
 import com.sun.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.registry.infomodel.User;
 
 @Controller
 @RequestMapping("/user")
@@ -56,3 +57,4 @@ public class UserController {
         return 0;
     }
 }
+*/

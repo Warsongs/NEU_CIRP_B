@@ -1,43 +1,94 @@
 package com.sun.model;
 
+import java.util.Date;
+
 public class User {
-    private Integer userId;
+    private String id;
 
-    private String userName;
 
-    private String password;
+    private String username;
 
-    private String phone;
+    private String type;
 
-    public Integer getUserId() {
-        return userId;
+    private String orgName;
+
+    private Boolean yn;
+
+    private Date ts;
+
+    private Date createdate;
+
+    private Date deletedate;
+
+    public User() {
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public User(String id, String username) {
+        this.id = id;
+        this.username = username;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getId() {
+        return id;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
     }
 
-    public String getPassword() {
-        return password;
+    public String getUsername() {
+        return username;
     }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
 
-    public String getPhone() {
-        return phone;
+    public String getType() {
+        return type;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+    public void setType(String type) {
+        this.type = type == null ? null : type.trim();
+    }
+
+    public String getOrgName() {
+        return orgName;
+    }
+
+    public void setOrgName(String orgName) {
+        this.orgName = orgName == null ? null : orgName.trim();
+    }
+
+    public Boolean getYn() {
+        return yn;
+    }
+
+    public void setYn(Boolean yn) {
+        this.yn = yn;
+    }
+
+    public Date getTs() {
+        return ts;
+    }
+
+    public void setTs(Date ts) {
+        this.ts = ts;
+    }
+
+    public Date getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(Date createdate) {
+        this.createdate = createdate;
+    }
+
+    public Date getDeletedate() {
+        return deletedate;
+    }
+
+    public void setDeletedate(Date deletedate) {
+        this.deletedate = deletedate;
     }
 }
