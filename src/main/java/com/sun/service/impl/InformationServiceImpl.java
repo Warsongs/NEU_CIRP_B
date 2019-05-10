@@ -5,9 +5,11 @@ import com.sun.model.Information;
 import com.sun.model.InformationExample;
 import com.sun.service.InformationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class InformationServiceImpl implements InformationService {
     @Autowired
     private InformationMapper informationMapper;

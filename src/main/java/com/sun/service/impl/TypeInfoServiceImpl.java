@@ -5,9 +5,11 @@ import com.sun.model.TypeInfo;
 import com.sun.model.TypeInfoExample;
 import com.sun.service.TypeInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TypeInfoServiceImpl implements TypeInfoService {
     @Autowired
     private TypeInfoMapper typeInfoMapper;
