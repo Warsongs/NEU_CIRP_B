@@ -7,10 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -27,11 +24,13 @@ public class InformationController {
     }
 
     @RequestMapping(value = "/information/{id}", method = RequestMethod.GET)
-    public String selectInformation(@PathVariable Integer id) {
+    @ResponseBody
+    public Information selectInformation(@PathVariable Integer id) {
         Information i = informationService.getInformationById(id);
-        JSONObject json = new JSONObject();
+        /*JSONObject json = new JSONObject();
         json.put("information", JSONObject.toJSON(i));
-        return json.toJSONString();
+        return json.toJSONString();*/
+        return i;
     }
 
     @RequestMapping(value = "/information", method = RequestMethod.PUT)
