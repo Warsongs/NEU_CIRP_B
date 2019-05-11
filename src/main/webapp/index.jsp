@@ -48,7 +48,19 @@
                 <div class="tab-content">
                     <div class="tab-pane" id="panel-1">
                         <p>
-                            简介部分内容
+                        <h3 contenteditable="true">1.功能</h3>
+
+                        <p>简单的校园信息发布和查看平台，每个人都可以在这里发布想对外公布的信息。</p>
+
+                        <h3 contenteditable="true">2.采用技术栈</h3>
+
+                        <p>后台采用Spring+Spring
+                            MVC+MyBatis的模式开发，采取了前后端分离的开发模式，前后端之间采用JSON进行数据传输，在资源的URL设计上，遵循了RESTful架构。</p>
+
+                        <h3 contenteditable="true">3.业务背景</h3>
+
+                        <p>公众号发布信息只能管理员进行发布，对个人发表通知来说很不方便。而学生们在日常生活中总会有一些需要对外进行广播的信息，这里就是他们的发声地。</p>
+
                         </p>
                     </div>
                     <div class="tab-pane active" id="panel-3">
@@ -571,48 +583,82 @@
                     </div>
                     <div class="tab-pane" id="panel-4">
                         <p>
-                            示例部分内容。
-                        </p>
+                            <div>
+                                <h2 contenteditable="true" spellcheck="false">具体交互</h2>
+                                <h3 contenteditable="true" spellcheck="false">1.POST（增加）、PUT（更新）操作</h3>
+                        <p><i>1.设置header content-type:application/json</i></p>
+                        <div class="container-fluid">
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <img alt="140x140"
+                                         src="https://note.youdao.com/yws/public/resource/b206b0696902b63dba4730bf7b2d837a/xmlnote/DC00D0A6FA1C4F049A1E97E87FBBD767/22137"
+                                         class="img-rounded"/>
+                                </div>
+                            </div>
+                        </div>
+                        <p><i>2.构造json数据</i></p>
+                        <div class="container-fluid">
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <img alt="140x140"
+                                         src="https://note.youdao.com/yws/public/resource/b206b0696902b63dba4730bf7b2d837a/xmlnote/E870E41A99F445F9867FDAF7E5F8D07F/22134"
+                                         class="img-rounded"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div><br></div>
+                        <h3 contenteditable="true" spellcheck="false">2.GET（查询）、DELETE（删除）操作</h3>
+                        <p><i>1.设置参数&nbsp;</i></p>
+                        <div class="container-fluid">
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <img alt="140x140"
+                                         src="https://note.youdao.com/yws/public/resource/b206b0696902b63dba4730bf7b2d837a/xmlnote/6F51867C666F4DB89CB8C2F16FF00021/22155"
+                                         class="img-rounded"/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row-fluid">
-        <div class="span12">
+</div>
+<div class="row-fluid">
+    <div class="span12">
+        <div>
             <div>
                 <div>
                     <div>
-                        <div>
-                            <div class="_8kySt _1ZUe4">
-                                <div class="_3BHfs">
-                                    <div class="_3kCD8">
-                                    </div>
+                        <div class="_8kySt _1ZUe4">
+                            <div class="_3BHfs">
+                                <div class="_3kCD8">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div>
             <div>
                 <div>
                     <div>
-                        <div>
-                            <div class="_3F-Wk _3mEyK _2Qe2S">
-                            </div>
+                        <div class="_3F-Wk _3mEyK _2Qe2S">
                         </div>
+                    </div>
 
-                    </div>
                 </div>
             </div>
+        </div>
+        <div>
             <div>
                 <div>
                     <div>
-                        <div>
-                            <div class="_8kySt _1A-5q _2TZgI _1ZUe4">
-                                <div class="_3BHfs">
-                                    <div class="_3kCD8">
-                                    </div>
+                        <div class="_8kySt _1A-5q _2TZgI _1ZUe4">
+                            <div class="_3BHfs">
+                                <div class="_3kCD8">
                                 </div>
                             </div>
                         </div>
@@ -621,6 +667,7 @@
             </div>
         </div>
     </div>
+</div>
 
 </div>
 </body>
