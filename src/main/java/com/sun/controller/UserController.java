@@ -10,10 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -35,11 +32,14 @@ public class UserController {
 
 
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-    public String selectUser(@PathVariable String id) {
-        User u = userService.getUserById(id);
-        JSONObject json = new JSONObject();
-        json.put("user", JSONObject.toJSON(u));
-        return json.toJSONString();
+    @ResponseBody
+    public User selectUser(@PathVariable String id) {
+        User user = userService.getUserById(id);
+        return user;
+
+        /*JSONObject json = new JSONObject();
+        json.put("user", JSONObject.toJSON(user));
+        return json.toJSONString();*/
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.PUT)

@@ -7,10 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -30,11 +27,13 @@ public class TypeInfoController {
     }
 
     @RequestMapping(value = "/typeInfo/{id}", method = RequestMethod.GET)
-    public String selectTypeInfo(@PathVariable Integer id) {
+    @ResponseBody
+    public TypeInfo selectTypeInfo(@PathVariable Integer id) {
         TypeInfo t = typeInfoService.getTypeInfoById(id);
-        JSONObject json = new JSONObject();
+        /*JSONObject json = new JSONObject();
         json.put("typeinfo", JSONObject.toJSON(t));
-        return json.toJSONString();
+        return json.toJSONString();*/
+        return t;
     }
 
     @RequestMapping(value = "/typeInfo", method = RequestMethod.PUT)
