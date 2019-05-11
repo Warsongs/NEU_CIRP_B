@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +21,6 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("")
-// /user/**
 public class UserController {
     private static Logger log = LoggerFactory.getLogger(UserController.class);
 
@@ -33,24 +33,24 @@ public class UserController {
         return "add";
     }
 
+
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-    public String selectUser(@RequestBody User user) {
-        User u = userService.getUserById(user.getId());
+    public String selectUser(@PathVariable String id) {
+        User u = userService.getUserById(id);
         JSONObject json = new JSONObject();
         json.put("user", JSONObject.toJSON(u));
         return json.toJSONString();
     }
 
-
-    @RequestMapping(value = "/user/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/user", method = RequestMethod.PUT)
     public String updateUser(@RequestBody User user) {
         userService.putUser(user);
         return "update";
     }
 
     @RequestMapping(value = "/user/{id}", method = RequestMethod.DELETE)
-    public String deleteUser(@RequestBody User user) {
-        userService.deleteUser(user.getId());
+    public String deleteUser(@PathVariable String id) {
+        userService.deleteUser(id);
         return "delete";
     }
 }
