@@ -20,6 +20,10 @@ public interface InformationMapper {
 
     List<Information> selectByExampleWithUserAndTypeInfo(InformationExample example);
 
+    List<Information> selectByExampleOrderByTime(InformationExample example);
+
+    List<Information> selectByExampleOrderByViewAndTime(InformationExample example);
+
     Information selectByPrimaryKey(Integer id);
 
     Information selectByPrimaryKeyWithUserAndTypeInfo(Integer id);
