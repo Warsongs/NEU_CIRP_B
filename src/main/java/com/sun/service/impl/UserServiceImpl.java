@@ -1,6 +1,9 @@
 package com.sun.service.impl;
 
 
+import com.sun.dao.UserMapper;
+import com.sun.model.User;
+import com.sun.model.UserExample;
 import com.sun.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

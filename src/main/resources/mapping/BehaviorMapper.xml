@@ -6,6 +6,12 @@
     <id column="timestamp" property="timestamp" jdbcType="TIMESTAMP" />
     <result column="behavior" property="behavior" jdbcType="VARCHAR" />
   </resultMap>
+  <resultMap id="BaseResultMapWithUser" type="com.sun.model.Behavior" >
+    <id column="user_id" property="userId" jdbcType="VARCHAR" />
+    <id column="timestamp" property="timestamp" jdbcType="TIMESTAMP" />
+    <result column="behavior" property="behavior" jdbcType="VARCHAR" />
+    <association property="user" column="user_id" select="com.sun.dao.UserMapper.selectByPrimaryKey"/>
+  </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -81,12 +87,33 @@
       order by ${orderByClause}
     </if>
   </select>
+  <select id="selectByExampleWithUser" resultMap="BaseResultMapWithUser" parameterType="com.sun.model.BehaviorExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from behavior
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
-    select 
+  select
+  <include refid="Base_Column_List" />
+  from behavior
+  where user_id = #{userId,jdbcType=VARCHAR}
+  and timestamp = #{timestamp,jdbcType=TIMESTAMP}
+</select>
+  <select id="selectByPrimaryKeyWithUser" resultMap="BaseResultMapWithUser" parameterType="map" >
+    select
     <include refid="Base_Column_List" />
     from behavior
     where user_id = #{userId,jdbcType=VARCHAR}
-      and timestamp = #{timestamp,jdbcType=TIMESTAMP}
+    and timestamp = #{timestamp,jdbcType=TIMESTAMP}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="map" >
     delete from behavior

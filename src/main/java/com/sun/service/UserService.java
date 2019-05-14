@@ -1,6 +1,9 @@
 package com.sun.service;
 
 
+import com.sun.model.User;
+import com.sun.model.UserExample;
+
 import java.util.List;
 
 public interface UserService {

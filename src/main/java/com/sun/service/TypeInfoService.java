@@ -1,6 +1,9 @@
 package com.sun.service;
 
 
+import com.sun.model.TypeInfo;
+import com.sun.model.TypeInfoExample;
+
 import java.util.List;
 
 public interface TypeInfoService {
