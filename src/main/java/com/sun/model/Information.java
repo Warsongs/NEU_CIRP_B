@@ -27,22 +27,6 @@ public class Information {
 
     private TypeInfo typeInfo;
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public TypeInfo getTypeInfo() {
-        return typeInfo;
-    }
-
-    public void setTypeInfo(TypeInfo typeInfo) {
-        this.typeInfo = typeInfo;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -121,5 +105,21 @@ public class Information {
 
     public void setDeletedate(Date deletedate) {
         this.deletedate = deletedate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public TypeInfo getTypeInfo() {
+        return typeInfo;
+    }
+
+    public void setTypeInfo(TypeInfo typeInfo) {
+        this.typeInfo = typeInfo;
     }
 }

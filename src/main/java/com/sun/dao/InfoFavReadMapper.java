@@ -2,7 +2,9 @@ package com.sun.dao;
 
 import com.sun.model.InfoFavRead;
 import com.sun.model.InfoFavReadExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface InfoFavReadMapper {
@@ -10,7 +12,7 @@ public interface InfoFavReadMapper {
 
     int deleteByExample(InfoFavReadExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(@Param("userId") String userId, @Param("infoId") Integer infoId);
 
     int insert(InfoFavRead record);
 
@@ -18,7 +20,11 @@ public interface InfoFavReadMapper {
 
     List<InfoFavRead> selectByExample(InfoFavReadExample example);
 
-    InfoFavRead selectByPrimaryKey(Integer id);
+    List<InfoFavRead> selectByExampleWithUserAndInformation(InfoFavReadExample example);
+
+    InfoFavRead selectByPrimaryKey(@Param("userId") String userId, @Param("infoId") Integer infoId);
+
+    InfoFavRead selectByPrimaryKeyWithUserAndInformation(@Param("userId") String userId, @Param("infoId") Integer infoId);
 
     int updateByExampleSelective(@Param("record") InfoFavRead record, @Param("example") InfoFavReadExample example);
 
