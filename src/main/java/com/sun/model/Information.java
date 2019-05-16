@@ -27,6 +27,8 @@ public class Information {
 
     private TypeInfo typeInfo;
 
+    private Integer count;
+
     public Integer getId() {
         return id;
     }
@@ -121,5 +123,13 @@ public class Information {
 
     public void setTypeInfo(TypeInfo typeInfo) {
         this.typeInfo = typeInfo;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
     }
 }
