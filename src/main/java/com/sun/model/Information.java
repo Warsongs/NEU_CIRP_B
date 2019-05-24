@@ -1,8 +1,9 @@
 package com.sun.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Information {
+public class Information{
     private Integer id;
 
     private String userId;
