@@ -1,14 +1,20 @@
 package com.sun.dao;
 
+import com.sun.model.InfoFavRead;
+import com.sun.model.InfoFavReadExample;
 import com.sun.model.Information;
 import com.sun.model.InformationExample;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
+
+import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
@@ -19,12 +25,8 @@ public class InformationMapperTest {
     @Test
     public void insert(){
         Information i=new Information();
-        i.setId(48);
+        i.setId(45);
         i.setUserId("孙狗蛋蛋蛋蛋大");
-        i.setIsAnony(false);
-        i.setActivityTime("今晚八点厕所门口集合");
-        i.setContent("狗蛋在吃翔");
-        i.setPhoneNum("12312313122");
         mapper.insertSelective(i);
     }
     @Test
@@ -109,33 +111,5 @@ public class InformationMapperTest {
         ) {
             System.out.println(i.getId());
         }
-    }
-
-    @Test
-    public void selectByExample() {
-    }
-
-    @Test
-    public void selectByExampleWithUserAndTypeInfo1() {
-    }
-
-    @Test
-    public void selectByExampleOrderByTime1() {
-    }
-
-    @Test
-    public void selectByExampleOrderByViewAndTime1() {
-    }
-
-    @Test
-    public void selectByExampleOrderByFav() {
-    }
-
-    @Test
-    public void selectByUseridOrderByView1() {
-    }
-
-    @Test
-    public void selectByUseridOrderByFav1() {
     }
 }
