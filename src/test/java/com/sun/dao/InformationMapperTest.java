@@ -33,7 +33,10 @@ public class InformationMapperTest {
     public void selectByExampleWithUserAndTypeInfo() {
         InformationExample example = new InformationExample();
         InformationExample.Criteria criteria = example.createCriteria();
+        long startTime = System.currentTimeMillis();
         List<Information> list = mapper.selectByExampleWithUserAndTypeInfo(example);
+        long endTime = System.currentTimeMillis();
+        System.out.println("程序运行时间：" + (endTime - startTime) + "ms"); //输出程序运行时间
     }
 
     @Test

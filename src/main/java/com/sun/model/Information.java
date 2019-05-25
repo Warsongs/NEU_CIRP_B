@@ -1,8 +1,9 @@
 package com.sun.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Information {
+public class Information implements Serializable {
     private Integer id;
 
     private String userId;
@@ -12,6 +13,14 @@ public class Information {
     private String location;
 
     private String topic;
+
+    private Boolean isAnnoy;
+
+    private Date activityTime;
+
+    private String contactId;
+
+    private String phoneNum;
 
     private String content;
 
@@ -131,5 +140,37 @@ public class Information {
 
     public void setCount(Integer count) {
         this.count = count;
+    }
+
+    public Boolean getAnnoy() {
+        return isAnnoy;
+    }
+
+    public void setAnnoy(Boolean annoy) {
+        isAnnoy = annoy;
+    }
+
+    public Date getActivityTime() {
+        return activityTime;
+    }
+
+    public void setActivityTime(Date activityTime) {
+        this.activityTime = activityTime;
+    }
+
+    public String getContactId() {
+        return contactId;
+    }
+
+    public void setContactId(String contactId) {
+        this.contactId = contactId;
+    }
+
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
     }
 }
