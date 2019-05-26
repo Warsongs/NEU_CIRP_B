@@ -35,7 +35,11 @@ public class Information {
 
     private TypeInfo typeInfo;
 
-    private Integer count;
+    private Integer readCount;
+
+    private Integer favCount;
+
+    private String picUrl;
 
     public Integer getId() {
         return id;
@@ -165,11 +169,27 @@ public class Information {
         this.typeInfo = typeInfo;
     }
 
-    public Integer getCount() {
-        return count;
+    public String getPicUrl() {
+        return picUrl;
     }
 
-    public void setCount(Integer count) {
-        this.count = count;
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
+    }
+
+    public Integer getReadCount() {
+        return readCount;
+    }
+
+    public void setReadCount(Integer readCount) {
+        this.readCount = readCount;
+    }
+
+    public Integer getFavCount() {
+        return favCount;
+    }
+
+    public void setFavCount(Integer favCount) {
+        this.favCount = favCount;
     }
 }
